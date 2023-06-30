@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "ESNext",
+        "outDir": "./dist",
+        "strict": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "rootDirs": ["src"],
+        "lib": ["ES2020", "DOM"],
+        "moduleResolution": "NodeNext",
+        "types": ["node", ],
+        "sourceMap":true,
+    },
+    "include": ["src"],
+    "exclude":["GraphQL_Frontend/**"]
+}

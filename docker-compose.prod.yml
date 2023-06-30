@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  client:
+    build: 
+      context: ./GraphQL_Frontend
+      dockerfile: ./Dockerfile.prod
+    ports:
+      - 4173:4173
+    restart: unless-stopped
+    environment:
+      - VITE_BACKEND_URL=http://api:4000
+  api:
+    build: 
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+      - 4000:4000
+    environment:
+      # - DB_URL=mongodb://db/vidly
+      DB_URL: mongodb://db/vidly
+    restart: unless-stopped
+  database:
+    image: mongo:4.0-xenial
+    ports:
+      - 27017:27017
+    volumes:
+      - vidly:/data/db #maps it outside
+    restart: unless-stopped
+volumes:
+  vidly:

@@ -1,0 +1,29 @@
+type Book{
+    id: ID!
+    title: String!
+    author: String!
+    description: String!
+    price: Float!
+    image: String!
+}
+type Product{
+    id: ID!
+    name: String!
+    description: String!
+    price: Float!
+    image: String!
+}
+type Query{
+    books: [Book]
+    book(id: ID!): Book
+    products: [Product]
+    product(id: ID!): Product
+}
+type Mutation{
+    addBook(title: String!, author: String!, description: String!, price: Float!, image: String!): Book
+    # updateBook(id: ID!, title: String!, author: String!, description: String!, price: Float!, image: String!): Book
+    # deleteBook(id: ID!): Book
+    # addProduct(name: String!, description: String!, price: Float!, image: String!): Product
+    # updateProduct(id: ID!, name: String!, description: String!, price: Float!, image: String!): Product
+    # deleteProduct(id: ID!): Product
+}
